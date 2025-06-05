@@ -1,0 +1,44 @@
+[package]
+name = "client"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+shared = { path = "../shared" }
+
+eframe = { version = "0.31.1", features = ["persistence"] }
+egui = "0.31.1"
+
+serde = { workspace = true }
+serde_json = { workspace = true }
+
+uuid = { version = "1.6", features = ["v4", "serde"] }
+dashmap = "5.5"
+
+wasm-bindgen = "0.2"
+wasm-bindgen-futures = "0.4"
+web-sys = { version = "0.3", features = [
+	"Document",
+    "Element",
+    "HtmlCanvasElement",
+    "Window",
+    "WebSocket",
+    "MessageEvent", "ErrorEvent", "CloseEvent", "BinaryType",
+    "console",
+]}
+gloo-net = { version = "0.4", features = ["websocket"] }
+gloo-utils = "0.2"
+
+log = { workspace = true }
+wasm-logger = "0.2"
+anyhow = { workspace = true }
+
+poll-promise = "0.3"
+futures-channel = "0.3"
+console_error_panic_hook = "0.1"
+
+futures-util = { version = "0.3", default-features = false, features = ["alloc", "sink", "std"] }
+futures = { version = "0.3" }

@@ -1,0 +1,21 @@
+[package]
+name = "server"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+shared = { path = "../shared" }
+
+dotenvy = "0.15"
+
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "sync"] }
+axum = { version = "0.7", features = ["ws", "tokio", "http1", "tower-log"] }
+tower-http = { version = "0.5", features = ["fs", "trace"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+uuid = { version = "1.6", features = ["v4", "serde"] }
+
+serde = { workspace = true }
+serde_json = { workspace = true }
+anyhow = { workspace = true }
+futures-util = { version = "0.3", default-features = false, features = ["sink", "std"] }
